@@ -1,0 +1,35 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container" style="margin-top:50px">
+  <h2 class="text-center">Admin Dashboard</h2>
+  <br><br><br>
+  <div class="row">
+     <div class="col-sm-4 text-center mycss">
+      <a href="{% url 'view_doctor' %}">
+      <h2 style="color:blue;">{{d}}</h2>
+      <i class="fas fa-user-md fa-5x"></i>
+      <h4 style="color:red";>Doctors</h4>
+      <hr class="rounded"></a>
+     </div>
+
+     <div class="col-sm-4 text-center mycss">
+     <a href="{% url 'view_patient' %}">
+      <h2 style="color:blue;">{{p}}</h2>
+      <i class="fab fa-accessible-icon fa-5x"></i> 
+      <h4 style="color:red";>Patients</h4>
+      <hr class="rounded"></a>
+     </div>
+
+     <div class="col-sm-4 text-center mycss">
+     <a href="{% url 'view_appointment' %}">
+      <h2 style="color:blue;">{{a}}</h2>
+      <i class="fas fa-calendar-check fa-5x"></i>
+      <h4 style="color:red";>Appointment</h4>
+      <hr class="rounded"></a>
+     </div>
+  </div>
+</div>
+
+{% endblock body %}

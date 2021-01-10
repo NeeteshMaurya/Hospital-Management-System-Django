@@ -1,0 +1,42 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+ <div class="container" style="margin-top:50px">
+    <h2 class="text-center">View Bill</h2>
+  <label for="">Patient Name</label>
+      <select name="patient" class="form-control">
+     {% for i in patient %}
+       <option value="{{i.name}}">{{i.name}} [{{i.id}}]</option>
+     {% endfor %}
+     </select>
+      <br>
+     <form name="example1">
+      <label for="">Medicine Charges</label>
+     <input type="text" id="num1" class="form-control" name="md_charge" required>
+     <br>
+     <label for="">Other Charges</label>
+     <input type="text" id="num2" class="form-control" name="ot_charge" required>
+     <br>
+      <input type="button" class="btn btn-success" name="B1" value="Total" onclick="cal()">
+    
+      Grand Total:<input type="text" size="20" name="answer">
+      <form> 
+        <input type="button" class="btn btn-primary" style="margin-left:700px" value="Print" 
+               onclick="window.print()" /> 
+    </form>
+    </form>
+    <script>
+      function cal()
+      {
+        var a =document.getElementById("num1").value;
+        var b =document.getElementById("num2").value;
+        document.example1.answer.value = parseFloat(a)+parseFloat(b);
+      }
+      function prnt()
+      {
+          windows.print();
+      }
+    </script>
+    </table>
+  </div>
+{% endblock body %}

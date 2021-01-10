@@ -1,0 +1,35 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container" style="margin-top:50px">
+    <h2 class="text-center">Update Doctor</h2>
+    <form action="" method="post">
+     {% csrf_token %}
+     <label for="">Doctor's Name</label>
+     <input type="text" class="form-control" name="name" value="{{doc.name}}" required>
+     <label for="">Contact</label>
+     <input type="text" class="form-control" name="contact" value="{{doc.mobile}}" required>
+     <br>
+     <label for="">Specialization</label>
+     <input type="text" class="form-control" name="special" value="{{doc.special}}" required>
+     <br>
+     <input type="submit" value="Update" class="form-control btn btn-primary">
+     
+  </form>
+
+</div>
+
+{% ifequal error "no" %}
+ <script>
+   alert('Record Saved Successfully'); 
+   window.location=('{% url 'view_doctor' %}');
+ </script>
+ {% endifequal %}
+
+ {% ifequal error "yes" %}
+ <script>
+   alert('Something went wrong!, Try Again'); 
+ </script>
+ {% endifequal %}
+{% endblock body %}
